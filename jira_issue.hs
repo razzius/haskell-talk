@@ -6,6 +6,7 @@ import Data.ByteString.Char8 (pack)
 import Data.Maybe (Maybe(Just, Nothing))
 import Data.Text.Internal (Text)
 import Data.Text.IO (putStrLn)
+import Control.Monad
 
 import System.Environment (lookupEnv)
 import System.Exit (exitFailure)
@@ -21,16 +22,24 @@ jql = "assignee = razzi\
       \ ORDER BY status, sprint"
 
 
+url = "https://sighten.atlassian.net/rest/api/2/search"
+
+
 opts auth = defaults & header "Authorization" .~ [pack auth]
                      & param "maxResults" .~ ["1"]
                      & param "jql" .~ [jql]
 
 
 getIssue :: String -> IO Text
-getIssue auth = do
-  response <- getWith (opts auth) "https://sighten.atlassian.net/rest/api/2/search"
-  return $ response ^. responseBody . key "issues" . nth 0 . key "fields" . key "description" . _String
+getIssue auth = getWith (opts auth) url
+  >>= \response ->
+    return $ response ^.
+      responseBody . key "issues" . nth 0 . key "fields" . key "description" . _String
 
+getIssue = (auth) => fetch(url, options(auth))
+  .then(response => {
+    return response.json().then(
+      json => json['issues'][0]['fields']['description'])})
 
 main = do
   jiraAuth <- lookupEnv "JIRA_AUTH"
