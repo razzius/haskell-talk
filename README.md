@@ -1,6 +1,7 @@
 ---
 title: What Python Can Learn from Haskell
 ...
+---
 
 ```
         /|                          \ \
@@ -24,7 +25,7 @@ This talk has 3 parts:
 
 ---
 
-## Intro to Haskell
+# Intro to Haskell
 
 Haskell is a programming language. Here is hello world.
 
@@ -88,8 +89,10 @@ Does anybody know the formula for the nth Fibonacci number?
 
 ## A simple program
 
-./squares
+```sh
+$ ./squares
 1, 4, 9, 16, 25, 36, 49, 64, 81, 100
+```
 
 ---
 
@@ -104,7 +107,7 @@ This allows us to write programs in a declarative way.
 
 ---
 
-# Characteristics of Haskell: Functional
+## Characteristics of Haskell: Functional
 
 ```haskell
 map sqrt [1..10]
@@ -144,6 +147,7 @@ data List a = Empty | Cons a (List a)
 
 
 quote.hs:
+
 ```haskell
 data ProductType = Loan | PPA
 ```
@@ -299,7 +303,6 @@ n_cores = int(input('How many cores? '))
 
 # ^ could runtime error
 ```
-
 
 ---
 
@@ -491,7 +494,7 @@ Haskell has been around since 1990. So why don't we use it?
 
 ---
 
-Who does use haskell?
+Who does use Haskell?
 
 - Computer science researchers
 
@@ -526,7 +529,7 @@ Learning different programming languages exposes us to different paradigms.
 # End
 
 ```haskell
-questions :: IO Maybe [String]
+questions :: IO [String]
 ```
 
 ## Resources
