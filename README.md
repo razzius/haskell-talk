@@ -9,8 +9,9 @@ title: What Python Can Learn from Haskell
   ||_||_||                          / /  \
 ```
 
----
+(watch this as a slideshow via using [patat](https://github.com/jaspervdj/patat/): `patat README.md`)
 
+---
 
 
 This talk has 3 parts:
