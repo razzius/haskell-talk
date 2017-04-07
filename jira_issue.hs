@@ -36,11 +36,6 @@ getIssue auth = getWith (opts auth) url
     return $ response ^.
       responseBody . key "issues" . nth 0 . key "fields" . key "description" . _String
 
-getIssue = (auth) => fetch(url, options(auth))
-  .then(response => {
-    return response.json().then(
-      json => json['issues'][0]['fields']['description'])})
-
 main = do
   jiraAuth <- lookupEnv "JIRA_AUTH"
 
