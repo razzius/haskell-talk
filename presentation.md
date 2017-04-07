@@ -508,6 +508,8 @@ PureScript: Haskell-like language compiling to JS
 
 > - Underscore, Lodash, Ramda: functional programming for JavaScript
 
+---
+
 ## Conclusion
 
 Learning different programming languages exposes us to different paradigms.
@@ -525,4 +527,12 @@ Learning different programming languages exposes us to different paradigms.
 ```haskell
 questions :: IO Maybe [String]
 ```
+
+## Resources
+
+https://www.haskell.org
+
+http://learnyouahaskell.com
+
+http://ramdajs.com
 

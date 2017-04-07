@@ -8,6 +8,7 @@ data Quote = Quote { uuid :: String
 
 upfrontPayment (Quote {productType = Loan, initialPayment = initial}) = initial
 upfrontPayment (Quote {productType = PPA}) = 0
+upfrontPayment (Quote {productType = Lease}) = 0
 
 
 main = putStrLn $ "Upfront payment of quote is: " ++ show upfrontCost

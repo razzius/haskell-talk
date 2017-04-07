@@ -1,12 +1,9 @@
--- join "_" ["a", "b"] -> "a_b"
---
+join :: String -> [String] -> String
 join _ [] = ""
-join sep [element] = element
-join sep (element : rest) = element ++ sep ++ join sep rest
+join _ [x] = x
+join sep (el : rest) = el ++ sep ++ join sep rest
 
+allNumbers = [1..]
 
-main = putStrLn commaSquares
-  where
-    commaSquares = join ", " squares
-    squares = map (show . (\x -> x * x)) numbers
-    numbers = [1..10]
+main :: IO ()
+main = (putStrLn join ", ") [show (x * x) | x <- allNumbers]

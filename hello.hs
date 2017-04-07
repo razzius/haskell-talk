@@ -1,1 +1,1 @@
-main = putStrLn "Hello"
+main = putStrLn "Hello" >> putStrLn "world"

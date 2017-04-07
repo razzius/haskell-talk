@@ -36,11 +36,12 @@ getIssue auth = getWith (opts auth) url
     return $ response ^.
       responseBody . key "issues" . nth 0 . key "fields" . key "description" . _String
 
+main :: IO ()
 main = do
   jiraAuth <- lookupEnv "JIRA_AUTH"
 
   case jiraAuth of
-    Nothing ->
-      putStrLn "Need to set JIRA_AUTH" >>
+    Nothing -> do
+      putStrLn "Need to set JIRA_AUTH"
       exitFailure
     Just auth -> getIssue auth >>= putStrLn
